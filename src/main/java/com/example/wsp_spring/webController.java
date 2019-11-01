@@ -32,8 +32,8 @@ public class webController {
     }
 
     @PostMapping("GetPost")
-    public String post(String text, Model model){
-        var message = service.modelText(text);
+    public String post(String text,String textPass, Model model){
+        var message = service.modelText(text,textPass);
         model.addAttribute("message",message);
         //追加 10/29
         var retrospectives = service.findAll();
@@ -53,9 +53,9 @@ public class webController {
     }
 
     @PostMapping("Signed")
-    public String signed (String text,Model model){
+    public String signed (String text,String textPass,Model model){
        var n = new SignService();
-       var hantei = n.doSignIn(text,);
+       var hantei = n.doSignIn(text,textPass);
        if(hantei == true){
            return "signed";
        }

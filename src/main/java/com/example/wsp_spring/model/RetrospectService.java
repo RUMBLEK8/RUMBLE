@@ -12,8 +12,8 @@ import static java.util.Collections.emptyList;
 @Service
 public class RetrospectService {
 
-    public int register(String text){
-        var retrospect = new Retrospect(text);
+    public int register(String text,String textPass){
+        var retrospect = new Retrospect(text,textPass);
         try{
             return repository.insert(retrospect);
         }catch(DataAccessException e){
@@ -34,8 +34,8 @@ public class RetrospectService {
         }
         return emptyList();
     }
-    public String modelText(String text){
-        var n = register(text);
+    public String modelText(String text,String textPass){
+        var n = register(text,textPass);
         var message = n > 0 ? n+"件を追加":"追加失敗"; //note:三項
 
        return message;

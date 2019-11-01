@@ -17,7 +17,7 @@ public class RetrospectRepository {
     public int insert(Retrospect retrospect){
         var sql = "insert into retrospect values(?,?)";
         //note:spring jdbc を使いJDBCプログラムを容易にしている
-        var n = jdbc.update(sql,retrospect.getText(),retrospect.getPostedAt());
+        var n = jdbc.update(sql,retrospect.getText(),retrospect.getTextPass(),retrospect.getPostedAt());
         return n;
     }
 

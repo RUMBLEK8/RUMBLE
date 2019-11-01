@@ -6,10 +6,12 @@ import java.time.LocalDateTime;
 public class Retrospect {
 
     private String text;
+    private String textPass;
     private LocalDateTime postedAt;
 
-    public Retrospect(String text){
+    public Retrospect(String text,String textPass){
         this.text = text;
+        this.textPass = textPass;
         this.postedAt = LocalDateTime.now();
         this.print();
     }
@@ -24,13 +26,14 @@ public class Retrospect {
     public void setText(String text){
         this.text = text;
     }
+    public void setTextPass(String textPass){this.textPass=textPass;}
 
 
 
     public  String getText(){
         return text;
     }
-
+    public  String getTextPass(){return textPass;}
 
     public LocalDateTime getPostedAt(){
         return postedAt;
